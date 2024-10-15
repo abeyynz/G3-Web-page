@@ -1,0 +1,15 @@
+{
+  "name": "g3-web-page",
+  "version": "1.0.0",
+  "description": "Tugas membuat Web Page menggunakan tailwind CSS.\r Terdiri dari:\r 1. Login Page\r 2. Register Page\r 3. Admin Page\r 4. Web Profile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
