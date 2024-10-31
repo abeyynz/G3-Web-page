@@ -5,8 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link rel="stylesheet" href="../dist/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    
+<body class="bg-gray-100 ">
+    <div class="flex h-screen">
+        <div id="sidebar" class="w-64 bg-red-800 text-yellow-400 transition-all duration-300">
+            <div class="flex items-center p-4">
+                <button onclick="toggleSidebar()" class="text-yellow-400 focus:outline-none hover:bg-red-700 p-2 rounded-full">
+                    <span>&#9776;</span>
+                </button>
+                <h1 class="ml-4 text-2xl font-bold sidebar-text">Alfamart <span class="text-xs">Admin</span></h1>
+            </div>
+            <ul class="mt-4">
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">dashboard</span>
+                    <span class="sidebar-text">Dashboard</span>
+                </li>
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">inventory_2</span>
+                    <span class="sidebar-text">Products</span>
+                </li>
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">category</span>
+                    <span class="sidebar-text">Categories</span>
+                </li>
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">receipt_long</span>
+                    <span class="sidebar-text">Orders</span>
+                </li>
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">people</span>
+                    <span class="sidebar-text">Customers</span>
+                </li>
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">description</span>
+                    <span class="sidebar-text">Pages</span>
+                </li>
+                <li class="p-4 hover:bg-red-700 flex items-center cursor-pointer">
+                    <span class="material-icons mr-2">sell</span>
+                    <span class="sidebar-text">Promotion</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex-1 p-8">
+            <h1 class="text-2xl font-bold">Page list</h1>
+            <p class="mt-4"></p>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar(){
+            const sidebar = document.getElementById("sidebar");
+            const sidebarTexts = document.querySelectorAll(".sidebar-text");
+            sidebar.classList.toggle("w-16");
+            sidebarTexts.forEach(text => {
+                text.classList.toggle("hidden");
+            });
+        }
+    </script>
 </body>
 </html>
