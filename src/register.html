@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Aplikasi Kasir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('./asset/3753305.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+
+    <div class="bg-white bg-opacity-90 border-2 border-red-500 rounded-l p-8 shadow-lg w-80">
+        <!-- Judul Aplikasi Kasir -->
+        <h2 class="text-center text-2xl font-bold text-red-500 mb-6">DAF<span class="text-blue-500">TAR</span></h2>
+        <p class="text-center text-gray-500 mb-6">Buat akun baru untuk mengakses aplikasi kasir</p>
+
+        <!-- Form Register -->
+        <form action="#" method="post">
+            <div class="mb-4">
+                <input type="text" placeholder="Nama Lengkap" class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <input type="text" placeholder="ID Pengguna atau Nama Pengguna" class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <input type="email" placeholder="Email" class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <input type="password" placeholder="Kata Sandi" class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <input type="password" placeholder="Konfirmasi Kata Sandi" class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            
+            <!-- Tombol Daftar -->
+            <div class="flex justify-center">
+                <button class="bg-blue-500 text-white font-bold w-full py-2 rounded-lg hover:bg-blue-600">Daftar</button>
+            </div>
+        </form>
+
+        <!-- Link Masuk jika sudah memiliki akun -->
+        <p class="text-center text-sm mt-4">
+            Sudah punya akun? <a href="login.html" class="text-blue-500">Masuk</a>
+        </p>
+    </div>
+
+</body>
+</html>
