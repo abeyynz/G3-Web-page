@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="../dist/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+
+</head>
+<body class="bg-gray-100 ">
+    <div class="flex h-screen">
+        <div id="sidebar" class="w-64 bg-red-800 text-yellow-400 transition-all duration-300">
+            <div class="flex items-center p-4">
+                <button onclick="toggleSidebar()" class="text-yellow-400 focus:outline-none hover:bg-red-700 p-2 rounded-full">
+                    <span>&#9776;</span>
+                </button>
+                <h1 class="ml-4 text-2xl font-bold sidebar-text">Alfamart <span class="text-xs">Admin</span></h1>
+            </div>
+            <div>
+                <ul >
+                    <li class="p-5 hover:bg-red-700 flex items-center cursor-pointer active:bg-red-700">
+                        <a href="#" class="flex">
+                            <span class="material-symbols-outlined mr-2">dashboard</span>
+                        <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="p-5 hover:bg-red-700 flex items-center cursor-pointer" onclick="toggleDropdown()">
+                        <a href="#" class="flex">
+                            <span class="material-symbols-outlined mr-2">analytics</span>
+                        <span class="sidebar-text flex" >Report<span class="material-symbols-outlined ml-auto">expand_more</span>
+                    </a></span>
+                    </li>
+                    <ul id="dropdown" class="ml-8 hidden">
+                        <li class="p-2 hover:bg-red-700 flex items-center cursor-pointer">
+                            <a href="#" class="flex">
+                                <span class="material-symbols-outlined mr-2">inventory_2</span>
+                                <span>Product</span>
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-red-700 flex items-center cursor-pointer">
+                            <a href="#" class="flex">
+                                <span class="material-symbols-outlined mr-2">category</span>
+                                <span>Categories</span>
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-red-700 flex items-center cursor-pointer">
+                            <a href="#" class="flex">
+                                <span class="material-symbols-outlined mr-2">receipt_long</span>
+                                <span>Order</span>
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-red-700 flex items-center cursor-pointer">
+                            <a href="#" class="flex">
+                                <span class="material-symbols-outlined mr-2">sell</span>
+                                <span>Promotion</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <li class="p-5 hover:bg-red-700 active:bg-red-700 flex items-center cursor-pointer">
+                        <a href="#pages" class="flex">
+                            <span class="material-symbols-outlined mr-2">description</span>
+                            <span class="sidebar-text">Pages</span>
+                        </a>
+                    </li>
+                    <li class="p-5 hover:bg-red-700 flex items-center cursor-pointer">
+                        <a href="#" class="flex">
+                            <span class="material-symbols-outlined mr-2">group</span>
+                            <span class="sidebar-text">Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center  ">
+                <a href="web.html" class="flex items-center hover:bg-red-700 p-5 rounded-full">
+                    <img src="/src/img/pic.png" alt="Profile" class="rounded-full w-8 h-8">
+                    <span class="sidebar-text text-lg font-bold ml-4">Harry Potter</span>
+                </a>
+                <a href="#" class="sidebar-text text-sm block  text-yellow-300 hover:bg-red-700 p-5 rounded-full" >
+                    <span class="material-symbols-outlined">logout</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1 p-5">
+            <div id="pages">
+                <h1 class="text-2xl font-bold">Page list</h1>
+                <p class="mt-4"></p>
+            </div>
+        </div>
+    </div>
+    <script defer>
+        function toggleSidebar(){
+            const sidebar = document.getElementById("sidebar");
+            const sidebarTexts = document.querySelectorAll(".sidebar-text");
+            const dropdown = document.getElementById("dropdown");
+            
+            if (sidebar.classList.contains("w-64")) {
+                sidebar.classList.remove("w-64");
+                sidebar.classList.add("w-16");
+            } else {
+                sidebar.classList.remove("w-16");
+                sidebar.classList.add("w-64");
+            }
+    
+            sidebarTexts.forEach(text => {
+                text.classList.toggle("hidden");
+            });
+
+            dropdown.classList.add("hidden");
+        }
+        function toggleDropdown() {
+            const sidebar = document.getElementById("sidebar");
+            const sidebarTexts = document.querySelectorAll(".sidebar-text");
+            const dropdown = document.getElementById("dropdown");
+
+            if (sidebar.classList.contains("w-16")) {
+                sidebar.classList.remove("w-16");
+                sidebar.classList.add("w-64");
+
+                sidebarTexts.forEach(text => text.classList.remove("hidden"));
+
+                dropdown.classList.remove("hidden");
+            } else {
+                dropdown.classList.toggle("hidden");
+            }
+        }
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.menu-item').forEach(menu => {
+                    menu.classList.remove('active');
+                });
+
+                item.classList.add('active');
+            });
+        });
+
+    </script>
+</body>
+</html>
