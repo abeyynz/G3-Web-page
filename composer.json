@@ -1,0 +1,8 @@
+{
+    "name": "bintang/g3-web-page",
+    "description": "Tugas membuat Web Page menggunakan tailwind CSS.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {}
+}
