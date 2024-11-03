@@ -4,8 +4,7 @@
   "description": "Tugas membuat Web Page menggunakan tailwind CSS.\r Terdiri dari:\r 1. Login Page\r 2. Register Page\r 3. Admin Page\r 4. Web Profile",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
