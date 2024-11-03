@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="../dist/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("-translate-x-full");
+      }
+
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown");
+        dropdown.classList.toggle("hidden");
+      }
+
+      function showSection(section) {
+        const sections = document.querySelectorAll(".section");
+        sections.forEach((sec) => {
+          sec.style.display = "none";
+        });
+        document.getElementById(section).style.display = "block";
+      }
+
+      function updateProfilePicture() {
+        const input = document.getElementById("fileInput");
+        const img = document.getElementById("profilePicture");
+        const file = input.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            img.src = e.target.result; // Update image source
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function editProfile() {
+        alert("Fitur edit profile sedang dalam pengembangan.");
+      }
+
+      function logout() {
+        alert("Anda telah keluar.");
+      }
+
+      // Menampilkan bagian 'users' saat halaman dimuat
+      window.onload = function () {
+        showSection("users");
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex min-h-screen">
+      <div
+        id="sidebar"
+        class="w-64 bg-blue-900 text-white transition-transform duration-300"
+      >
+        <div class="flex items-center p-4">
+          <button
+            onclick="toggleSidebar()"
+            class="text-white focus:outline-none hover:bg-red-500 p-2 rounded-full"
+          >
+            <span>&#9776;</span>
+          </button>
+          <h1 class="ml-4 text-2xl font-bold">
+            Alfa <span class="text-xs">Admin</span>
+          </h1>
+        </div>
+        <ul>
+          <li
+            class="p-5 hover:bg-red-500 flex items-center cursor-pointer"
+            onclick="showSection('dashboard')"
+          >
+            <a href="#" class="flex">
+              <span class="material-symbols-outlined mr-2">dashboard</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li
+            class="p-5 hover:bg-red-500 flex items-center cursor-pointer"
+            onclick="toggleDropdown()"
+          >
+            <a href="#" class="flex">
+              <span class="material-symbols-outlined mr-2">analytics</span>
+              <span
+                >Report<span class="material-symbols-outlined ml-auto"
+                  >expand_more</span
+                ></span
+              >
+            </a>
+          </li>
+          <ul id="dropdown" class="ml-8 hidden">
+            <li class="p-2 hover:bg-red-500 flex items-center cursor-pointer">
+              <a href="#" class="flex" onclick="showSection('products')">
+                <span class="material-symbols-outlined mr-2">inventory_2</span>
+                <span>Product</span>
+              </a>
+            </li>
+            <li class="p-2 hover:bg-red-500 flex items-center cursor-pointer">
+              <a href="#" class="flex" onclick="showSection('categories')">
+                <span class="material-symbols-outlined mr-2">category</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="p-2 hover:bg-red-500 flex items-center cursor-pointer">
+              <a href="#" class="flex" onclick="showSection('orders')">
+                <span class="material-symbols-outlined mr-2">receipt_long</span>
+                <span>Order</span>
+              </a>
+            </li>
+            <li class="p-2 hover:bg-red-500 flex items-center cursor-pointer">
+              <a href="#" class="flex" onclick="showSection('promotions')">
+                <span class="material-symbols-outlined mr-2">sell</span>
+                <span>Promotion</span>
+              </a>
+            </li>
+          </ul>
+          <li
+            class="p-5 hover:bg-red-500 flex items-center cursor-pointer"
+            onclick="showSection('pages')"
+          >
+            <a href="#" class="flex">
+              <span class="material-symbols-outlined mr-2">description</span>
+              <span>Pages</span>
+            </a>
+          </li>
+          <li
+            class="p-5 hover:bg-red-500 flex items-center cursor-pointer"
+            onclick="showSection('users')"
+          >
+            <a href="#" class="flex">
+              <span class="material-symbols-outlined mr-2">group</span>
+              <span>Users</span>
+            </a>
+          </li>
+          <li
+            class="p-5 hover:bg-red-500 flex items-center cursor-pointer"
+            onclick="showSection('profile')"
+          >
+            <a href="#" class="flex">
+              <span class="material-symbols-outlined mr-2">person</span>
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+        <div
+          class="flex justify-between items-center fixed bottom-0 space-x-14"
+        >
+          <a
+            href="#"
+            class="flex items-center hover:bg-red-500 p-5 rounded-full"
+          >
+            <img
+              src="/src/asset/pic.png"
+              alt="Profile"
+              class="rounded-full w-6 h-6"
+            />
+            <span class="text-lg font-bold ml-2">Potter</span>
+          </a>
+          <a
+            href="#"
+            class="text-sm block hover:bg-red-500 p-5 pt-4 rounded-full"
+          >
+            <span class="material-symbols-outlined">logout</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex-1 w-screen p-4">
+        <div
+          id="users"
+          class="section bg-blue-500 h-14 p-2 w-full flex items-center justify-between px-4"
+          style="display: block"
+        >
+          <h1 class="text-2xl text-white font-semibold">User Management</h1>
+        </div>
+
+        <div class="section" id="profile" style="display: none">
+          <h2 class="text-xl font-bold text-center">Profile Admin</h2>
+          <div class="mt-4 flex flex-col items-center">
+            <img
+              id="profilePicture"
+              src="src/asset/profile.jpg"
+              alt="Profile"
+              class="rounded-full w-24 h-24 border-2 border-blue-300 mb-4"
+            />
+            <table class="min-w-full bg-white border rounded-lg shadow text-sm">
+              <tbody>
+                <tr>
+                  <td class="text-center border px-4 py-2">
+                    <p class="text-lg font-semibold" id="userId">
+                      User ID: 123456
+                    </p>
+                    <p class="text-lg font-semibold" id="fullName">
+                      Nama Lengkap: Potter
+                    </p>
+                    <p class="text-lg font-semibold">
+                      Tanggal Lahir: 01/01/1990
+                    </p>
+                    <p class="text-lg font-semibold">
+                      Nomor Telepon: 08123456789
+                    </p>
+                    <p class="text-lg font-semibold">
+                      Email: potter@example.com
+                    </p>
+                    <p class="text-lg font-semibold">
+                      Alamat Rumah: Jl. Kenangan No. 123
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center border px-4 py-2">
+                    <button
+                      class="text-blue-500 hover:underline"
+                      onclick="editProfile()"
+                    >
+                      Edit Profile
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center border px-4 py-2">
+                    <button
+                      class="text-red-500 hover:underline"
+                      onclick="logout()"
+                    >
+                      Logout
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section" id="products" style="display: none">
+          <h2 class="text-xl font-bold text-center">Products Section</h2>
+          <!-- Add content for products section -->
+        </div>
+
+        <div class="section" id="categories" style="display: none">
+          <h2 class="text-xl font-bold text-center">Categories Section</h2>
+          <!-- Add content for categories section -->
+        </div>
+
+        <div class="section" id="orders" style="display: none">
+          <h2 class="text-xl font-bold text-center">Orders Section</h2>
+          <!-- Add content for orders section -->
+        </div>
+
+        <div class="section" id="promotions" style="display: none">
+          <h2 class="text-xl font-bold text-center">Promotions Section</h2>
+          <!-- Add content for promotions section -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
